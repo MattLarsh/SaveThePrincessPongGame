@@ -1,0 +1,64 @@
+*{
+	box-sizing: border-box;
+}
+body{
+	background: #267B93;
+}
+#background{
+	fill: #272822;
+}
+#paddle{
+	fill: #BD2C06;
+}
+#ball1{
+	fill: white;
+}
+#ball2{
+	fill: red;
+}
+#ball3{
+	fill: blue;
+}
+#ball4{
+	fill: green;
+}
+#tube1{
+	fill: #1EA602;
+}
+#tubeTop1{
+	fill: #0b6701;
+	stroke: black;
+}
+#tube2{
+	fill: #1EA602;
+}
+#tubeTop2{
+	fill: #0b6701;
+	stroke: black;
+}
+#tube3{
+	fill: #1EA602;
+}
+#tubeTop3{
+	fill: #0b6701;
+	stroke: black;
+}
+#tube4{
+	fill: #1EA602;
+}
+#tubeTop4{
+	fill: #0b6701;
+	stroke: black;
+}
+#gold{
+	fill:#FFFF01;
+}
+#comp1{
+	fill:#BD2C06;
+}
+#comp2{
+	fill:#BD2C06;
+}
+#comp3{
+	fill:#BD2C06;
+}
