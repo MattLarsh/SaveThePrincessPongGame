@@ -50,7 +50,10 @@ body{
 	fill: #0b6701;
 	stroke: black;
 }
-#gold{
+#leftHair{
+	fill:#FFFF01;
+}
+#rightHair{
 	fill:#FFFF01;
 }
 #comp1{
@@ -61,4 +64,31 @@ body{
 }
 #comp3{
 	fill:#BD2C06;
+}
+#face{
+  fill: #FDD7BE;
+}
+#leftEye{
+	fill: #F6F6F6;
+}
+#rightEye{
+	fill: #F6F6F6;
+}
+#leftEyeColor{
+	fill: #5FABFF;
+}
+#rightEyeColor{
+	fill: #5FABFF;
+}
+#torso{
+	fill: #FFB1E5;
+}
+#torso2{
+	fill: #FFB1E5;
+}
+#rightMouth{
+	fill: white;
+}
+#leftMouth{
+	fill: white;
 }

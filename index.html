@@ -7,7 +7,18 @@
 <body>
 	<svg id='field' viewBox='0 0 800 600' preserveAspectRatio='xMidYMid'>
 		<rect id='background' width='800' height='600'/>
-		<rect id='gold' width='50' height='14' x='370' y='80' rx='1'/>
+		
+		<ellipse id='face' cx="392" cy="80" rx="25" ry="17" />
+		<ellipse id='leftEye' cx="386" cy="76" rx="5" ry="7" />
+		<ellipse id='rightEye' cx="399" cy="76" rx="5" ry="7" />
+		<ellipse id='leftEyeColor' cx="386" cy="76" rx="2" ry="2.5" />
+		<ellipse id='rightEyeColor' cx="399" cy="76" rx="2" ry="2.5" />
+		<rect id='rightHair' width='50' height='14'  transform="translate(30) rotate(45 125 470)" />
+		<rect id='leftHair' width='50' height='14'  transform="translate(30) rotate(-30 300 -560)" />
+		<rect id='leftMouth' width='10' height='4'  transform="translate(30) rotate(45 79 478)" />
+		<rect id='rightMouth' width='10' height='4'  transform="translate(30) rotate(-30 345 -625)" />
+		<!-- <polygon id='torso' points="20,0 180,0 120,100, 180,200, 20,200 80,100"  /> -->
+		<polygon id='torso2' points="368,95 417,95 400,125, 408,140, 378,140 385,125"  />
 		<circle id='ball1' r='8' cx='1' cy='300'/>
 		<circle id='ball2' r='8' cx='799' cy='300'/>
 		<circle id='ball3' r='8' cx='799' cy='300'/>
@@ -21,9 +32,15 @@
 		<rect id='tube4' width='55' height='35' y='400' />
 		<rect id='tubeTop4' width='25' height='40' rx='50' x='45' y='398' />
 		<rect id='paddle' width='165' height='25' x='320' y='555'/>
-		<rect id='comp1' width='25' height='100' x='300' y='0'/>
-		<rect id='comp2' width='25' height='100' x='460' y='0'/>
-		<rect id='comp3' width='150' height='25' x='300' y='140'/>
+		<rect id='comp1'  height='121' x='300' y='0'>
+      <animate attributeName="width" from="25" to="1" dur="300s" repeatCount="indefinite" />
+		</rect>
+		<rect id='comp2' height='121' x='460' y='0'>
+      <animate attributeName="width" from="25" to="1" dur="300s" repeatCount="indefinite" />
+		</rect>
+		<rect id='comp3' width='150' x='300' y='140'>
+      <animate attributeName="height" from="25" to="1" dur="420s" repeatCount="indefinite" />
+	  </rect>
 	</svg>
 	<script src='main.js'></script>
 </body>

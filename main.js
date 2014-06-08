@@ -279,37 +279,37 @@ var animate = function(ball){
     // alert('hi');
   }
   if(dir1 === 'down'){
-    comp1.y += 2.75;
+    comp1.y += 2;
   }
-  if(comp1.y > 40){
+  if(comp1.y > 30){
     dir1 = 'up';
   }
   if(dir1 === 'up'){
-    comp1.y -= 2.75;
+    comp1.y -= 2;
   }
-  if(comp1.y < 0){
+  if(comp1.y < 5){
     dir1 = 'down';
   }
   if(dir2 === 'down'){
-    comp2.y += 3.1;
+    comp2.y += 2;
   }
-  if(comp2.y > 40){
+  if(comp2.y > 30){
     dir2 = 'up';
   }
   if(dir2 === 'up'){
-    comp2.y -= 3.1;
+    comp2.y -= 2;
   }
-  if(comp2.y < 0){
+  if(comp2.y < 5){
     dir2 = 'down';
   }
   if(dir3 === 'right'){
-    comp3.x += 3;
+    comp3.x += 2;
   }
-  if(comp3.x > 340){
+  if(comp3.x > 320){
     dir3 = 'left';
   }
   if(dir3 === 'left'){
-    comp3.x -= 3;
+    comp3.x -= 2;
   }
   if(comp3.x < 300){
     dir3 = 'right';
@@ -358,6 +358,9 @@ field.addEventListener('mousemove', function (event){
   var insvg = p.matrixTransform(matrix);
   inputX = insvg.x;
 });
+window.onresize = function (event) {
+    matrix = field.getScreenCTM().inverse();
+};
 
 
 
