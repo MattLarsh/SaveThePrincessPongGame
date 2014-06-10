@@ -78,6 +78,7 @@ var ball1 = ball('ball1');
 var ball2 = ball('ball2');
 var ball3 = ball('ball3');
 var ball4 = ball('ball4');
+var face = ball('face');
 var clock = function(){
   var last = Date.now();
   return{
@@ -119,18 +120,13 @@ function collideBallWithComp(ball,what) {
   }
   var voff = ball.cy - what.cy;
   if (ball.dx > 0) {
-      // Collide with left border
-
       if (ball.right >= what.left && ball.left < what.right) {
-          // Collision
           ball.cx -= ball.right - what.left;
           ball.dx *= -1;
           ball.dy += voff * deflectFactor;
       }
   } else {
-      // Collide with right border
       if (ball.left <= what.right && ball.right > what.left) {
-          // Collision
           ball.cx += what.right - ball.left;
           ball.dx *= -1;
           ball.dy += voff * deflectFactor;
@@ -183,6 +179,15 @@ function startBall4(){
     ball4.dx = -5.15;
   },2000);
 }
+function faceOff(){
+  face.dx = 0;
+  face.dy = 0;
+  setTimeout(function(){
+    face.dy = 4.25;
+    face.dx = -5.15;
+  },32000);
+}
+faceOff();
 startBall1();
 startBall2();
 startBall3();
@@ -190,7 +195,7 @@ startBall4();
 var dir1 = 'down';
 var dir2 = 'down';
 var dir3 = 'right';
-console.log(comp1);
+
 var animate = function(ball){
   player.cx = inputX;
   var anim_factor = clock.reset() * animSpeed;
@@ -202,6 +207,8 @@ var animate = function(ball){
   ball3.cy += ball3.dy * anim_factor * 0.43;
   ball4.cx += ball4.dx * anim_factor * 0.46;
   ball4.cy += ball4.dy * anim_factor * 0.70;
+  face.cx += face.dx * anim_factor * 0.46;
+  face.cy += face.dy * anim_factor * 0.70;
   if(ball1.cy > 600){
     ball1.cy = 600;
     ball1.dy *= -1;
@@ -266,18 +273,24 @@ var animate = function(ball){
     ball4.cx = 0;
     ball4.dx *= -1;
   }
-  if(ball1.cx >= 365 && ball1.cx < 415 && ball1.cy > 17 && ball1.cy < 34){
-    // alert('hi');
+
+  if(face.cy > 600){
+    face.cy = 600;
+    face.dy *= -1;
   }
-  if(ball2.cx >= 365 && ball2.cx < 415 && ball2.cy > 17 && ball2.cy < 34){
-    // alert('hi');
+  if(face.cy < 0){
+    face.cy = 0;
+    face.dy *= -1;
   }
-  if(ball3.cx >= 365 && ball3.cx < 415 && ball3.cy > 17 && ball3.cy < 34){
-    // alert('hi');
+  if(face.cx > 800){
+    face.cx = 800;
+    face.dx *= -1;
   }
-  if(ball4.cx >= 365 && ball4.cx < 415 && ball4.cy > 17 && ball4.cy < 34){
-    // alert('hi');
+  if(face.cx < 0){
+    face.cx = 0;
+    face.dx *= -1;
   }
+
   if(dir1 === 'down'){
     comp1.y += 2;
   }
@@ -327,11 +340,15 @@ var animate = function(ball){
   collideBallWithComp(ball2,comp2);
   collideBallWithComp(ball3,comp2);
   collideBallWithComp(ball4,comp2);
+  collideBallWithComp(face,comp2);
+  collideBallWithComp(face,comp3);
   collideBallWithComp(ball1,comp1);
   collideBallWithComp(ball2,comp1);
   collideBallWithComp(ball3,comp1);
   collideBallWithComp(ball4,comp1);
+  collideBallWithComp(face,comp1);
   collideBallWith(ball1,ball2);
+  collideBallWith(ball1,face);
   collideBallWith(ball1,ball3);
   collideBallWith(ball1,ball4);
   collideBallWith(ball2,ball1);
@@ -343,10 +360,18 @@ var animate = function(ball){
   collideBallWith(ball4,ball1);
   collideBallWith(ball4,ball2);
   collideBallWith(ball4,ball3);
+  collideBallWith(ball4,face);
   collideBallWith(ball1,player);
   collideBallWith(ball2,player);
   collideBallWith(ball3,player);
   collideBallWith(ball4,player);
+  collideBallWith(face,player);
+  collideBallWith(ball3,face);
+  collideBallWith(ball2,face);
+  collideBallWith(face,ball1);
+  collideBallWith(face,ball2);
+  collideBallWith(face,ball3);
+  collideBallWith(face,ball4);
   requestAnimationFrame(animate);
 };
 var matrix = field.getScreenCTM().inverse();
